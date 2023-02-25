@@ -31,7 +31,7 @@ variable ami_type {
     type = string
 }
 
-variable vpc {
+variable vpc_id {
     description = "Inputs from the VPC module"
     type = string
 }
