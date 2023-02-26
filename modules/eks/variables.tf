@@ -1,14 +1,19 @@
-variable "vpc_name" {
-  type = string
-  description = "The name of the VPC"
-}
-
 variable cluster_name {
     description = "The cluster name."
 }
 
 variable cluster_version {
     description = "The cluster version."
+}
+
+variable public_subnets {
+    description = "Inputs from the VPC module."
+    type = list(string)
+}
+
+variable private_subnets {
+    description = "Inputs from the VPC module."
+    type = list(string)
 }
 
 variable node_group_name {
@@ -23,6 +28,11 @@ variable instance_types {
 
 variable ami_type {
     description = "The identifier of the image that the nodes will use"
+    type = string
+}
+
+variable vpc_id {
+    description = "Inputs from the VPC module"
     type = string
 }
 
@@ -44,8 +54,4 @@ variable ecr_names {
 variable ecr_prefix {
     description = "A common prefix to add to the name of ecr repositories" 
     type = string
-}
-
-variable aws_profile {
-    description = "The AWS profile to be used."
 }
