@@ -24,5 +24,10 @@ module "eks" {
   ecr_names = var.ecr_names
   instance_https_port = var.instance_https_port
   instance_http_port = var.instance_http_port
+}
 
+module "load-balancer-controller" {
+  source = "./modules/load-balancer-controller"
+  cluster_oidc_issuer = module.eks.cluster_oidc_issuer
+  cluster_endpoint = module.eks.cluster_endpoint
 }
